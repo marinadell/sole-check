@@ -3,6 +3,10 @@ import {connect} from 'react-redux';
 
 class RegisterPage extends Component {
   state = {
+    first_name: '',
+    last_name: '',
+    email: '',
+    birthday: '',
     username: '',
     password: '',
   };
@@ -42,6 +46,50 @@ class RegisterPage extends Component {
         )}
         <form onSubmit={this.registerUser}>
           <h1>Register User</h1>
+          <div>
+          <label htmlFor="first">
+              First Name:
+              <input
+                type="text"
+                name="username"
+                value={this.state.first_name}
+                onChange={this.handleInputChangeFor('first_name')}
+              />
+            </label>
+          </div>
+          <div>
+          <label htmlFor="last">
+              Last Name:
+              <input
+                type="text"
+                name="last_name"
+                value={this.state.last_name}
+                onChange={this.handleInputChangeFor('last_name')}
+              />
+            </label>
+          </div>
+          <div>
+          <label htmlFor="email">
+              Email:
+              <input
+                type="text"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleInputChangeFor('email')}
+              />
+            </label>
+          </div>
+          <div>
+          <label htmlFor="birthday">
+              Birthday:
+              <input
+                type="date"
+                name="birthday"
+                value={this.state.birthday}
+                onChange={this.handleInputChangeFor('birthday')}
+              />
+            </label>
+          </div>
           <div>
             <label htmlFor="username">
               Username:
@@ -95,4 +143,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(RegisterPage);
+
 
