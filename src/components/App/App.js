@@ -16,8 +16,11 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
+import Confirmation from '../Confirmation/Confrimation';
 
 import './App.css';
+import Header from '../Header/Header';
+
 
 class App extends Component {
   componentDidMount () {
@@ -28,7 +31,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
+          <Header />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
@@ -54,6 +57,11 @@ class App extends Component {
               exact
               path="/info"
               component={InfoPage}
+            />
+            <Route
+              exact
+              path="/register"
+              component={Confirmation}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

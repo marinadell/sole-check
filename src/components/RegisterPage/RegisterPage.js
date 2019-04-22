@@ -11,20 +11,19 @@ class RegisterPage extends Component {
     password: '',
   };
 
-  registerUser = (event) => {
+  newUser = (event) => {
     event.preventDefault();
-
-    if (this.state.username && this.state.password) {
-      this.props.dispatch({
-        type: 'REGISTER',
-        payload: {
-          username: this.state.username,
-          password: this.state.password,
-        },
-      });
-    } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
-    }
+    this.props.dispatch({
+      type: 'NEW_USER',
+      payload: {
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        email: this.state.email,
+        birthday: this.state.birthday,
+        username: this.state.username,
+        password: this.state.password,
+      },
+    })
   } // end registerUser
 
   handleInputChangeFor = propertyName => (event) => {
