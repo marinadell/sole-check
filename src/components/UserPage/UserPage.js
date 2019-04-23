@@ -9,7 +9,14 @@ const UserPage = (props) => (
     <h1 id="welcome">
       Welcome, { props.user.username }!
     </h1>
-    <p>Your ID is: {props.user.id}</p>
+    <div className="clickable">
+      <img src="images/sneakers.jpg" alt="sneakers"/>
+      <h2>View Collection</h2>
+    </div>
+    <div>
+      <img src="images/sneakerscollection.jpg" alt="sneakers"/>
+      <h2>Add A New Sneaker</h2>
+    </div>
   </div>
 );
 

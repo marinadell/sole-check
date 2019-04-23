@@ -13,17 +13,12 @@ class RegisterPage extends Component {
 
   newUser = (event) => {
     event.preventDefault();
+    console.log(this.state);
     this.props.dispatch({
       type: 'NEW_USER',
-      payload: {
-        first_name: this.state.first_name,
-        last_name: this.state.last_name,
-        email: this.state.email,
-        birthday: this.state.birthday,
-        username: this.state.username,
-        password: this.state.password,
-      },
+      payload: this.state,
     })
+    this.props.history.push('/register');
   } // end registerUser
 
   handleInputChangeFor = propertyName => (event) => {
@@ -43,7 +38,7 @@ class RegisterPage extends Component {
             {this.props.errors.registrationMessage}
           </h2>
         )}
-        <form onSubmit={this.registerUser}>
+        <form onSubmit={this.newUser}>
           <h1>Register User</h1>
           <div>
           <label htmlFor="first">
@@ -116,7 +111,7 @@ class RegisterPage extends Component {
               className="register"
               type="submit"
               name="submit"
-              value="Register"
+              value="Next Step"
             />
           </div>
         </form>
@@ -124,7 +119,8 @@ class RegisterPage extends Component {
           <button
             type="button"
             className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
+            // onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
+            onClick={this.newUser}
           >
             Login
           </button>
