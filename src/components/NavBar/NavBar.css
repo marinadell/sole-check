@@ -1,0 +1,13 @@
+ul{
+    text-align: left;
+    background-color: blue;
+    color: white;
+    width: 100px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.navBar{
+    color: white;
+    text-decoration: none;
+}
