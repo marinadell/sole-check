@@ -1,0 +1,29 @@
+img {
+    width: 350px;
+    height: 400px;
+    padding: 5px;
+}
+
+.card {
+    background-color: yellow;
+    color: blue;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    width: 400px;
+    text-align: center;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.userpage{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

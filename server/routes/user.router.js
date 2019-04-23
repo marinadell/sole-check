@@ -55,6 +55,7 @@ router.post('/register', async(req, res, next) => {
     const result = await client.query(queryText, [username, password]);
     const id = result.rows[0].id
     console.log(id);
+    
     const userInfo = await client.query(queryText2, [id, firstname, lastname, email, birthday])
     await client.query('COMMIT')
   }

@@ -13,10 +13,10 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+import Collection from '../Collection/Collection';
 import Confirmation from '../Confirmation/Confrimation';
+import AddSneaker from '../AddSneaker/AddSneaker'
 
 import './App.css';
 import Header from '../Header/Header';
@@ -35,13 +35,7 @@ class App extends Component {
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
-            {/* Visiting localhost:3000/about will show the about page.
-            This is a route anyone can see, no login necessary */}
-            <Route
-              exact
-              path="/about"
-              component={AboutPage}
-            />
+          
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
@@ -55,8 +49,13 @@ class App extends Component {
             they will see the info page instead. */}
             <ProtectedRoute
               exact
-              path="/info"
-              component={InfoPage}
+              path="/collection"
+              component={Collection}
+            />
+            <ProtectedRoute
+              exact
+              path="/addsneaker"
+              component={AddSneaker}
             />
             <Route
               exact
