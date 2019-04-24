@@ -10,7 +10,8 @@ class Collection extends Component {
 
   detailedButton = (event) => {
       console.log('Button clicked', event.target.value);
-    //create function to send event.target.value to redux to axios request to get just that id
+      this.props.dispatch({type: 'GET_SHOE', payload: event.currentTarget.value})
+      this.props.history.push('/sneaker')
   }
 
   render() {

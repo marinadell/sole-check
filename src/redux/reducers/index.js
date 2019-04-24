@@ -6,6 +6,7 @@ import registerPage from './registerpage';
 import collectionReducer from './collectionReducer';
 import brandReducer from './brandReducer';
 import colorReducer from './colorReducer';
+import shoeReducer from './shoeReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   collectionReducer,
   brandReducer,
   colorReducer,
+  shoeReducer,
 });
 
 export default rootReducer;

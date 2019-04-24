@@ -60,6 +60,11 @@ class AddSneaker extends Component {
     });
   };
 
+  addShoe = (event) => {
+    event.preventDefault();
+    //dispatch call for post
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -123,6 +128,8 @@ class AddSneaker extends Component {
           <FormHelperText>Secondary Color</FormHelperText>
         </FormControl>
         </form>
+        <input type="file"></input>
+        <button onClick={this.addShoe}>Add Sneaker</button>
       </div>
   )}
 }

@@ -12,13 +12,14 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
+import Header from '../Header/Header';
 import UserPage from '../UserPage/UserPage';
 import Collection from '../Collection/Collection';
 import Confirmation from '../Confirmation/Confrimation';
-import AddSneaker from '../AddSneaker/AddSneaker'
+import AddSneaker from '../AddSneaker/AddSneaker';
+import DetailedShoe from '../DetailedShoe/DetailedShoe';
 
 import './App.css';
-import Header from '../Header/Header';
 
 
 class App extends Component {
@@ -55,6 +56,11 @@ class App extends Component {
               exact
               path="/addsneaker"
               component={AddSneaker}
+            />
+            <ProtectedRoute
+              exact
+              path="/sneaker"
+              component={DetailedShoe}
             />
             <Route
               exact
