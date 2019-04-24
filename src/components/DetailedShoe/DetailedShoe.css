@@ -6,13 +6,18 @@
 
 .first {
     float: left;
-    width: 70%;
+    width: 55%;
     background-color: yellow;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .second{
+    float: right;
     background-color: blue;
     font-size: 20px;
+    width: 25%;
+    margin-right: 5%;
 }
   
 .row:after {
@@ -36,4 +41,14 @@ img {
 
 .story{
     text-align: center;
+}
+
+.delete{
+    background-color: red;
+    font-size: 16px;
+    padding: 10px 24px;
+    color: yellow;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
