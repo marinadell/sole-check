@@ -4,6 +4,8 @@ import loginMode from './loginModeReducer';
 import user from './userReducer';
 import registerPage from './registerpage';
 import collectionReducer from './collectionReducer';
+import brandReducer from './brandReducer';
+import colorReducer from './colorReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   user,
   registerPage, // will have an id and username if someone is logged in
   collectionReducer,
+  brandReducer,
+  colorReducer,
 });
 
 export default rootReducer;

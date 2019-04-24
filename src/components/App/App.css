@@ -10,7 +10,7 @@ body {
     margin: 50px;
 }
 
-form {
+.form {
     background-color: red;
     width: 50%;
     height: 350px;
