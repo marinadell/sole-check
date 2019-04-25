@@ -5,7 +5,8 @@ import userSaga from './userSaga';
 import collectionSaga from './collectionSaga';
 import brandSaga from './brandSaga';
 import colorSaga from './colorSaga';
-import shoeSaga from './shoeSaga'
+import shoeSaga from './shoeSaga';
+import dateSaga from './dateSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +24,6 @@ export default function* rootSaga() {
     brandSaga(),
     colorSaga(),
     shoeSaga(),
+    dateSaga(),
   ]);
 }

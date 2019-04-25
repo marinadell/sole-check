@@ -30,22 +30,17 @@ class DetailedShoe extends Component {
     handleDateChanged = (event) => {
         this.setState({
             worn_date: event.target.value,
+            id: event.target.defaultValue,
           });
     }
 
     deleteButton = (event) => {
         console.log('delete button clicked');
+        
     }
 
     updateButton = (event) => {
         console.log('update button clicked');
-        this.setState({
-            id: event.target.value,
-          });
-        this.updateShoe();
-    }
-
-    updateShoe = () => {
         this.props.dispatch({type: 'UPDATE_DATE', payload: this.state})
     }
 
@@ -73,12 +68,12 @@ class DetailedShoe extends Component {
                 </section>
                 <section className="second">
                     <p>Last Time Worn:</p> 
-                    <p>{moment(shoe.last_worn).subtract(10, 'days').calendar()}</p>
+                    <p>{moment(shoe.last_worn).subtract().calendar()}</p>
                     <p>Added to collection:</p> 
-                    <p>{moment(shoe.date_added).subtract(10, 'days').calendar()}</p>
+                    <p>{moment(shoe.date_added).subtract().calendar()}</p>
                     {shoe.deadstock ?
                    <p>DEADSTOCK</p> : <p></p>}
-                   <p>Have you worn this recently</p>
+                   <p>Have you worn this recently?</p>
                    <form className={classes.container} noValidate>
                         <TextField
                         id="date"

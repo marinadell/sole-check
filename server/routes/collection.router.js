@@ -36,4 +36,16 @@ router.get('/details/:id', (req, res) => {
       });
   });
 
+  router.put('/details/:id', (req, res) => {
+    console.log(req.params.id, req.body.worn_date);
+    let wornDate = "'" + req.body.worn_date + "'"
+    const queryText = `UPDATE "shoe" SET "deadstock" = FALSE, "last_worn" = $1 WHERE "id" = $2;`;
+    pool.query(queryText,[wornDate, req.params.id])
+      .then((result) => { res.sendStatus(200); })
+      .catch((err) => {
+        console.log('Error completing SELECT shoe', err);
+        res.sendStatus(500);
+      });
+  });
+
 module.exports = router;
