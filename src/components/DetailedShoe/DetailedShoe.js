@@ -22,11 +22,32 @@ var moment = require('moment')
 
 class DetailedShoe extends Component {
 
-    //incoporate moment.js
-    //material to add calender
-    //if/else statement to display Deadstock or not
+    state = {
+        worn_date: '',
+        id: ''
+    }
 
-    //moment().subtract(10, 'days').calendar();
+    handleDateChanged = (event) => {
+        this.setState({
+            worn_date: event.target.value,
+          });
+    }
+
+    deleteButton = (event) => {
+        console.log('delete button clicked');
+    }
+
+    updateButton = (event) => {
+        console.log('update button clicked');
+        this.setState({
+            id: event.target.value,
+          });
+        this.updateShoe();
+    }
+
+    updateShoe = () => {
+        this.props.dispatch({type: 'UPDATE_DATE', payload: this.state})
+    }
 
   render() {
     const { classes } = this.props;
@@ -61,15 +82,17 @@ class DetailedShoe extends Component {
                    <form className={classes.container} noValidate>
                         <TextField
                         id="date"
-                        label="Birthday"
+                        label="Worn"
                         type="date"
-                        defaultValue="2017-05-24"
+                        defaultValue={shoe.id}
                         className={classes.textField}
+                        onChange= {this.handleDateChanged}
                         InputLabelProps={{
                         shrink: true,
                         }}
                         />
                     </form>
+                    <pre>{JSON.stringify(this.state)}</pre>
                     <br/>
                     <button onClick={this.updateButton} value={shoe.id} className="delete">
                         Update Date
