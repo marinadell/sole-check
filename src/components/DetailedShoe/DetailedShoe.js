@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
+import swal from 'sweetalert';
+
 const styles = theme => ({
     container: {
       display: 'flex',
@@ -36,6 +38,24 @@ class DetailedShoe extends Component {
 
     deleteButton = (event) => {
         console.log('delete button clicked');
+        swal({
+            title: "Are you sure you want to remove this shoe from your collection?",
+            text: "Once removed, you will not be able to recover this shoe and will have to re-add it!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Your sneaker has been removed from your collection!", {
+                icon: "success",
+              });
+              console.log('delete shoe', this.props.reduxState.shoeReducer[0]);
+              this.props.dispatch({type: 'DELETE_SHOE', payload: this.props.reduxState.shoeReducer[0]})
+            } else {
+              swal("Your sneakers are safe");
+            }
+          });
         
     }
 
@@ -95,7 +115,7 @@ class DetailedShoe extends Component {
                    <br/>
                    <br/>
                     <button onClick={this.deleteButton} value={shoe.id} className="delete">
-                        Delete Shoe
+                        Remove Shoe
                    </button>
                 </section>
             </body>

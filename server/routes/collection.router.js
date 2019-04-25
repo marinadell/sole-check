@@ -48,4 +48,17 @@ router.get('/details/:id', (req, res) => {
       });
   });
 
+  router.delete('/details/:id', (req, res) => {
+    console.log(req.params.id);
+    
+    const queryText = `DELETE FROM "shoe" WHERE "id" = ${req.params.id};`;
+    //pool.query(queryText, [req.query.id])
+    pool.query(queryText)
+      .then(() => { res.sendStatus(200); })
+      .catch((err) => {
+        console.log('Error deleting shoe query', err);
+        res.sendStatus(500);
+      });
+  });
+
 module.exports = router;
