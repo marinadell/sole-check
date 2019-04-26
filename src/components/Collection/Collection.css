@@ -1,3 +1,8 @@
+.main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .card{
     background-color: red;
     margin-left: 5px;
@@ -6,6 +11,26 @@
     margin-bottom: 5px;
     font-size: 18px;
     color: yellow;
+}
+
+.cardDs{
+    background-color: blue;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: yellow;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    width: 400px;
+    text-align: center;
+}
+
+.cardImage{
+    width: auto;
+    height: 350px;
 }
 
 .card:hover {
@@ -17,10 +42,6 @@ h4{
     font-weight: bold;
     font-size: 24px;
     text-decoration: underline;
-}
-
-.main{
-    display: flex;
 }
 
 button{

@@ -51,7 +51,8 @@ class DetailedShoe extends Component {
                 icon: "success",
               });
               console.log('delete shoe', this.props.reduxState.shoeReducer[0]);
-              this.props.dispatch({type: 'DELETE_SHOE', payload: this.props.reduxState.shoeReducer[0]})
+              this.props.dispatch({type: 'DELETE_SHOE', payload: this.props.reduxState.shoeReducer[0]});
+              this.props.history.push('/home')
             } else {
               swal("Your sneakers are safe");
             }
@@ -97,7 +98,7 @@ class DetailedShoe extends Component {
                    <form className={classes.container} noValidate>
                         <TextField
                         id="date"
-                        label="Worn"
+                        label="WORN"
                         type="date"
                         defaultValue={shoe.id}
                         className={classes.textField}
@@ -107,7 +108,6 @@ class DetailedShoe extends Component {
                         }}
                         />
                     </form>
-                    <pre>{JSON.stringify(this.state)}</pre>
                     <br/>
                     <button onClick={this.updateButton} value={shoe.id} className="delete">
                         Update Date
@@ -117,6 +117,9 @@ class DetailedShoe extends Component {
                     <button onClick={this.deleteButton} value={shoe.id} className="delete">
                         Remove Shoe
                    </button>
+                   <br/>
+                   <br/>
+                   <br/>
                 </section>
             </body>
           )}

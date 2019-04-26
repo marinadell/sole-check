@@ -7,9 +7,9 @@ function* brandSaga(action) {
       // Attempt to get brand
       const response = yield axios.get('/api/brand/')
       console.log(response);
-      const action = { type: 'SET_BRAND', payload: response.data };
-      console.log(action);
-      yield put(action);
+      const setAction = { type: 'SET_BRAND', payload: response.data };
+      console.log(setAction);
+      yield put(setAction);
     }
     catch (error) {
       console.log(`Couldn't get brands`, error);

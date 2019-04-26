@@ -13,6 +13,7 @@ const userRouter = require('./routes/user.router');
 const collectionRouter = require('./routes/collection.router');
 const brandRouter = require('./routes/brand.router');
 const colorRouter = require('./routes/color.router');
+const imageRouter = require('./routes/image.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -30,6 +31,7 @@ app.use('/api/user', userRouter);
 app.use('/api/user/collection', collectionRouter);
 app.use('/api/brand', brandRouter);
 app.use('/api/color', colorRouter);
+//app.use('/api/aws/images', imageRouter)
 
 // Serve static files
 app.use(express.static('build'));

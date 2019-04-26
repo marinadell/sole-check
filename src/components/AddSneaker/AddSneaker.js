@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import AddSneakerImg from '../AddSneakerImg/AddSneakerImg'
 
 const styles = theme => ({
   container: {
@@ -128,7 +129,7 @@ class AddSneaker extends Component {
           <FormHelperText>Secondary Color</FormHelperText>
         </FormControl>
         </form>
-        <input type="file"></input>
+        <AddSneakerImg />
         <button onClick={this.addShoe}>Add Sneaker</button>
       </div>
   )}
