@@ -9,6 +9,7 @@ import shoeSaga from './shoeSaga';
 import dateSaga from './dateSaga';
 import deleteShoeSaga from './deleteShoeSaga';
 import image from './AddImgSaga';
+import addShoe from './addShoeSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -29,5 +30,6 @@ export default function* rootSaga() {
     dateSaga(),
     deleteShoeSaga(),
     image(),
+    addShoe(),
   ]);
 }

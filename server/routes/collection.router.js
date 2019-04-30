@@ -20,6 +20,23 @@ router.get('/', (req, res) => {
 	});
 });
 
+router.post('/', (req, res) => {
+  const newShoe = req.body;
+  console.log(newShoe);
+  const queryText = `INSERT INTO shoe ("shoe_name", "brand_id", "style", "color1_id", "color2_id, "story", "date_added", "deadstock")
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;
+  const queryValues = [
+    newShoe.shoe_name,
+    newShoe.brand_id,
+  ];
+  pool.query(queryText, queryValues)
+    .then(() => { res.sendStatus(201); })
+    .catch((err) => {
+      console.log('Error completing adding new Project', err);
+      res.sendStatus(500);
+    });
+});
+
 router.get('/details/:id', (req, res) => {
     console.log(req.params.id);
     const queryText = `SELECT "shoe"."id", "shoe_name", "user_id", "style", "story", "image", "date_added", "last_worn", "deadstock", 

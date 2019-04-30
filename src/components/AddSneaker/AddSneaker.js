@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+var moment = require('moment')
 
 const styles = theme => ({
   container: {
@@ -47,6 +48,7 @@ class AddSneaker extends Component {
     color2_id: '',
     story: '',
     imageId: this.props.reduxState.imageIdReducer,
+    date_added: moment().format('YYYY-MM-DD')
   }
 
   componentDidMount(){
@@ -55,15 +57,19 @@ class AddSneaker extends Component {
   }
 
   handleChange = name => event => {
-    console.log(event.target.value, name);
-    console.log(this.state);
+    // console.log(event.target.value, name);
+    // console.log(this.state);
     this.setState({
       [name]: event.target.value,
     });
   };
 
   addShoe = (event) => {
-
+      event.preventDefault();
+      console.log('button clicked');
+    // let action = {type: 'ADD_SHOE', payload: this.state};
+    // console.log(action);
+    //this.props.dispatch(action)
   }
 
 //   handleSelectChange = name  => event => {
@@ -73,7 +79,7 @@ class AddSneaker extends Component {
 //       });
 //   };
 
-  addShoe = (event) => {
+  addShoeButton = (event) => {
     event.preventDefault();
     //dispatch call for post
   }
@@ -173,8 +179,8 @@ class AddSneaker extends Component {
           variant="outlined"
         />
         </form>
+        <button onClick={this.addShoeButton}>Add Sneaker</button>
         <pre>{JSON.stringify(this.state)}</pre>
-        <button onClick={this.addShoe}>Add Sneaker</button>
       </div>
   )}
 }
