@@ -23,7 +23,7 @@ class Collection extends Component {
       <FilterDraw />
       <section className="main">
         {this.props.reduxState.collectionReducer.map(shoe =>
-            <div>
+            <div key={shoe.id}>
               {shoe.deadstock ?
               <div className="cardDs" key={shoe.id} value={shoe.id} onClick={this.cardClicked}>
                 <img src={shoe.image} alt={shoe.shoe_name} className="cardImage"></img>

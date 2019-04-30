@@ -99,9 +99,9 @@ const uploadPost = async (req, res) => {
       
       pool.query(queryText, [media_key])
         .then((result) => {
-          console.log('back from db with:', result, result.rows[0].id
+          console.log('back from db with id:', result, result.rows[0].id
           );
-          res.send(result.rows[0].id);
+          res.send( { id: result.rows[0].id } );
         })
         .catch((error) => {
           console.log('error in POST', error);

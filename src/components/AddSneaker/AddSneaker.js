@@ -8,7 +8,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { sendFileToServer } from '../../sendFormToServer';
 
 const styles = theme => ({
   container: {
@@ -47,7 +46,7 @@ class AddSneaker extends Component {
     color1_id: '',
     color2_id: '',
     story: '',
-    selectedFile: '',
+    imageId: this.props.reduxState.imageIdReducer,
   }
 
   componentDidMount(){
@@ -58,12 +57,6 @@ class AddSneaker extends Component {
   handleChange = name => event => {
 
   };
-
-  fileSelectHandler = event => {
-    const file = event.target.files[0];
-    console.log(file);
-    sendFileToServer(file);
-}
 
   addShoe = (event) => {
     event.preventDefault();
@@ -145,6 +138,7 @@ class AddSneaker extends Component {
           variant="outlined"
         />
         </form>
+        <pre>{JSON.stringify(this.state)}</pre>
         <button onClick={this.addShoe}>Add Sneaker</button>
       </div>
   )}

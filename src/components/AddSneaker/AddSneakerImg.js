@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { sendFileToServer } from '../../sendFormToServer';
+//import sendFile from '../../sendFormToServer';
 
 class AddSneakerImg extends Component {
 
   fileSelectHandler = event => {
     const file = event.target.files[0];
     console.log(file);
-    sendFileToServer(file);
+    let action = {type: 'ADD_IMG', payload: file};
+    this.props.dispatch(action);
+    //sendFile.toServer(file);
   }
 
   nextPage = () => {
