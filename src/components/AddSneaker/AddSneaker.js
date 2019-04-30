@@ -55,8 +55,23 @@ class AddSneaker extends Component {
   }
 
   handleChange = name => event => {
-
+    console.log(event.target.value, name);
+    console.log(this.state);
+    this.setState({
+      [name]: event.target.value,
+    });
   };
+
+  addShoe = (event) => {
+
+  }
+
+//   handleSelectChange = name  => event => {
+//     console.log(event.target.value);
+//     this.setState({
+//         [name]: event.target.value
+//       });
+//   };
 
   addShoe = (event) => {
     event.preventDefault();
@@ -76,6 +91,8 @@ class AddSneaker extends Component {
           className={classes.textField}
           margin="normal"
           variant="outlined"
+          value={this.state.name}
+          onChange={this.handleChange('shoe_name')}
         />
         <TextField
           required
@@ -84,13 +101,15 @@ class AddSneaker extends Component {
           className={classes.textField}
           margin="normal"
           variant="outlined"
+          value={this.state.name}
+          onChange={this.handleChange('style')}
         />
         </form>
         <form className={classes.root} autoComplete="off">
-        <FormControl className={classes.formControl}>
+        {/* <FormControl className={classes.formControl}>
           <Select
             value={this.state.brand_id}
-            onChange={this.handleChange}
+            onChange={this.handleChange('brand_id')}
             name="brand_id"
             displayEmpty
             className={classes.selectEmpty}
@@ -101,9 +120,9 @@ class AddSneaker extends Component {
           </Select>
           <FormHelperText>Brand</FormHelperText>
           <Select
-            value={this.state.color2_id}
-            onChange={this.handleChange}
-            name="color2_id"
+            value={this.state.color1_id}
+            onChange={this.handleChange('color1_id')}
+            name="color1_id"
             displayEmpty
             className={classes.selectEmpty}
           >
@@ -111,10 +130,11 @@ class AddSneaker extends Component {
             <MenuItem value={color.id}>{color.color}</MenuItem>
           )}
           </Select>
+          
           <FormHelperText>Main Color</FormHelperText>
           <Select
             value={this.state.color2_id}
-            onChange={this.handleChange}
+            onClick={this.handleChange('color2_id')}
             name="color2_id"
             displayEmpty
             className={classes.selectEmpty}
@@ -124,14 +144,29 @@ class AddSneaker extends Component {
           )}
           </Select>
           <FormHelperText>Secondary Color</FormHelperText>
-        </FormControl>
+        </FormControl> */}
+        <select id = "brand_id" onChange={this.handleChange("brand_id")}>
+        {this.props.reduxState.brandReducer.map( brand =>
+            <option value={brand.id}>{brand.brand}</option>
+          )}
+        </select>
+        <select id = "color1_id" onChange={this.handleChange("color1_id")}>
+            {this.props.reduxState.colorReducer.map( color =>
+                <option value={color.id}>{color.color}</option>
+            )}
+        </select>
+        <select id = "color2_id" onChange={this.handleChange("color2_id")}>
+            {this.props.reduxState.colorReducer.map( color =>
+                <option value={color.id}>{color.color}</option>
+            )}
+        </select>
         <TextField
           id="outlined-multiline-flexible"
           label="Sneaker Story"
           multiline
           rowsMax="8"
           value={this.state.multiline}
-          onChange={this.handleChange('multiline')}
+          onChange={this.handleChange('story')}
           className={classes.textField}
           margin="normal"
           helperText="I bought this shoe...."
