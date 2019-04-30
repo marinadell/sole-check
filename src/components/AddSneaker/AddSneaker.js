@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import AddSneakerImg from '../AddSneakerImg/AddSneakerImg'
+import { sendFileToServer } from '../../sendFormToServer';
 
 const styles = theme => ({
   container: {
@@ -47,7 +47,7 @@ class AddSneaker extends Component {
     color1_id: '',
     color2_id: '',
     story: '',
-    image_url: ''
+    selectedFile: '',
   }
 
   componentDidMount(){
@@ -56,10 +56,14 @@ class AddSneaker extends Component {
   }
 
   handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value,
-    });
+
   };
+
+  fileSelectHandler = event => {
+    const file = event.target.files[0];
+    console.log(file);
+    sendFileToServer(file);
+}
 
   addShoe = (event) => {
     event.preventDefault();
@@ -128,8 +132,19 @@ class AddSneaker extends Component {
           </Select>
           <FormHelperText>Secondary Color</FormHelperText>
         </FormControl>
+        <TextField
+          id="outlined-multiline-flexible"
+          label="Sneaker Story"
+          multiline
+          rowsMax="8"
+          value={this.state.multiline}
+          onChange={this.handleChange('multiline')}
+          className={classes.textField}
+          margin="normal"
+          helperText="I bought this shoe...."
+          variant="outlined"
+        />
         </form>
-        <AddSneakerImg />
         <button onClick={this.addShoe}>Add Sneaker</button>
       </div>
   )}

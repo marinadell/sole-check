@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import './Collection.css'
-import Filter from '../Filter/Filter';
 import FilterDraw from '../Filter/FilterDraw'
 
 class Collection extends Component {

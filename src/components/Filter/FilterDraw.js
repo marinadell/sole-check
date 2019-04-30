@@ -40,7 +40,7 @@ const styles = {
           <List>
             {this.props.reduxState.brandReducer.map((brands) => (
               <ListItem key={brands.id}>
-                {brands.brand}
+                <input type="checkbox" name="brand" value={brands.id} key={brands.id}/> {brands.brand}
               </ListItem>
             ))}
           </List>
@@ -48,9 +48,14 @@ const styles = {
           <List>
             {this.props.reduxState.colorReducer.map((colors) => (
               <ListItem key={colors.id}>
-                {colors.color}
+                <input type="checkbox" name="color" value={colors.id} key={colors.id}/>{colors.color}
               </ListItem>
             ))}
+          </List>
+          <List>
+          <ListItem>
+            <input type="checkbox" name="deadstock" value="TRUE"/> Deadstock
+          </ListItem>
           </List>
         </div>
       );
@@ -61,12 +66,11 @@ const styles = {
           <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
             <div
               tabIndex={0}
-              role="button"
-              onClick={this.toggleDrawer('right', false)}
               onKeyDown={this.toggleDrawer('right', false)}
             >
             {sideList}
             </div>
+            <button onClick={this.toggleDrawer('right', false)}>Enter</button>
           </Drawer>
         </div>
       );

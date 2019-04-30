@@ -1,12 +1,29 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import './UserPage.css'
+import './UserPage.css';
+import axios from 'axios';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
 
 class UserPage extends Component {
+
+  state = {
+    images: [],
+  }
+
+  componentDidMount = () => {
+    axios.get('/api/aws/images')
+      .then(response => {
+        this.setState({
+          images: response.data
+        })
+      })
+      .catch(error => {
+        console.log('Error getting images: ', error);
+      })
+  }
 
   collectionClick = () => {
     console.log('collection Clicked');
@@ -15,7 +32,7 @@ class UserPage extends Component {
 
   addClick = () => {
     console.log('add sneaker');
-    this.props.history.push('/addsneaker');
+    this.props.history.push('/addsneakerimage');
   }
 
   render() {
@@ -37,6 +54,16 @@ class UserPage extends Component {
               <h2>Add A New Sneaker</h2>
             </div>
           </div>
+          {/* <pre>{JSON.stringify(this.state)}</pre> */}
+          {/* <div>
+        {this.state.images.map((image, index) => {
+          return (
+            <div key={index} className="post">
+              <img className="image" src={image.media_url} alt="post"/> 
+            </div>
+          )
+        })}
+      </div> */}
         </div>
       </div>
   )}

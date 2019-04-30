@@ -17,6 +17,7 @@ import UserPage from '../UserPage/UserPage';
 import Collection from '../Collection/Collection';
 import Confirmation from '../Confirmation/Confrimation';
 import AddSneaker from '../AddSneaker/AddSneaker';
+import AddSneakerImg from '../AddSneaker/AddSneakerImg';
 import DetailedShoe from '../DetailedShoe/DetailedShoe';
 
 import './App.css';
@@ -56,6 +57,11 @@ class App extends Component {
               exact
               path="/addsneaker"
               component={AddSneaker}
+            />
+            <ProtectedRoute
+              exact
+              path="/addsneakerimage"
+              component={AddSneakerImg}
             />
             <ProtectedRoute
               exact

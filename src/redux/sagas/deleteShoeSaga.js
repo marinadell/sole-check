@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { takeLatest, put } from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga/effects';
 
 function* deleteShoeSaga(action) {
   console.log('Hit the deleteShoeSaga', action);

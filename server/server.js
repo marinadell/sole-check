@@ -31,7 +31,7 @@ app.use('/api/user', userRouter);
 app.use('/api/user/collection', collectionRouter);
 app.use('/api/brand', brandRouter);
 app.use('/api/color', colorRouter);
-//app.use('/api/aws/images', imageRouter)
+app.use('/api/aws/images', imageRouter)
 
 // Serve static files
 app.use(express.static('build'));
