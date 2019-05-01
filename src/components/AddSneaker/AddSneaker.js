@@ -64,25 +64,15 @@ class AddSneaker extends Component {
     });
   };
 
-  addShoe = (event) => {
-      event.preventDefault();
-      console.log('button clicked');
-    // let action = {type: 'ADD_SHOE', payload: this.state};
-    // console.log(action);
-    //this.props.dispatch(action)
-  }
-
-//   handleSelectChange = name  => event => {
-//     console.log(event.target.value);
-//     this.setState({
-//         [name]: event.target.value
-//       });
-//   };
 
   addShoeButton = (event) => {
     event.preventDefault();
-    //dispatch call for post
-  }
+    console.log('fart head');
+    let action = {type: 'ADD_SHOE', payload: this.state};
+    console.log(action);
+    this.props.dispatch(action);
+    this.props.history.push('/home')
+}
 
   render() {
     const { classes } = this.props;
@@ -180,7 +170,6 @@ class AddSneaker extends Component {
         />
         </form>
         <button onClick={this.addShoeButton}>Add Sneaker</button>
-        <pre>{JSON.stringify(this.state)}</pre>
       </div>
   )}
 }

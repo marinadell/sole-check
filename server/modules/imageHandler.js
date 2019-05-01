@@ -27,6 +27,7 @@ const uploadPost = async (req, res) => {
       for(const row of rows){
         const media_url = await generateSignedUrl(row.media_key);
         row.media_url = media_url;
+        console.log(newRows);
         newRows.push(row);
       }  
       return new Promise(resolve => {
@@ -44,7 +45,7 @@ const uploadPost = async (req, res) => {
         region: 'us-east-2',
       });
       let urlParams = {Bucket: BUCKET_NAME, Key: key};
-      console.log({urlParams});
+      console.log('urlparams are:', {urlParams});
       s3bucket.getSignedUrl('getObject', urlParams, function(error, url) {
         if(error){
           console.log(error);

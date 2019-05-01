@@ -18,6 +18,7 @@ class Collection extends Component {
   }
 
   render() {
+    console.log(this.props.reduxState.collectionReducer);
     return (
       <div>
       <FilterDraw />
@@ -26,7 +27,8 @@ class Collection extends Component {
             <div key={shoe.id}>
               {shoe.deadstock ?
               <div className="cardDs" key={shoe.id} value={shoe.id} onClick={this.cardClicked}>
-                <img src={shoe.image} alt={shoe.shoe_name} className="cardImage"></img>
+              {/* <pre>{JSON.stringify(shoe)}</pre>  */}
+                <img src={shoe.media_url} alt={shoe.shoe_name} className="cardImage"></img>
                   <div className="container">
                   <h4>{shoe.shoe_name}</h4>
                   <p>{shoe.style}</p>
@@ -36,7 +38,7 @@ class Collection extends Component {
               </div>
               :
               <div className="card" key={shoe.id} value={shoe.id} onClick={this.cardClicked}>
-                <img src={shoe.image} alt={shoe.shoe_name} className="cardImage"></img>
+                <img src={shoe.media_url} alt={shoe.shoe_name} className="cardImage"></img>
                   <div className="container">
                   <h4>{shoe.shoe_name}</h4>
                   <p>{shoe.style}</p>

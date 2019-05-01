@@ -7,7 +7,6 @@ function* addShoeSaga(action) {
       // Attempt to get collection
       const response = yield axios.post('/api/user/collection/', action.payload)
       console.log(response);
-      yield put('GET_COLLECTION');
     }
     catch (error) {
       console.log(`Couldn't add shoe`, error);

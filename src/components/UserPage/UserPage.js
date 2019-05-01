@@ -54,8 +54,8 @@ class UserPage extends Component {
               <h2>Add A New Sneaker</h2>
             </div>
           </div>
-          {/* <pre>{JSON.stringify(this.state)}</pre> */}
-          {/* <div>
+          {/* <pre>{JSON.stringify(this.state)}</pre>
+          <div>
         {this.state.images.map((image, index) => {
           return (
             <div key={index} className="post">
