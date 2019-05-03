@@ -8,7 +8,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-var moment = require('moment')
+import './AddSneaker.css'
+var moment = require('moment');
 
 const styles = theme => ({
   container: {
@@ -78,7 +79,7 @@ class AddSneaker extends Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className="addShoeForm">
         <form className={classes.container} noValidate autoComplete="off">
         <TextField
           required
@@ -141,21 +142,27 @@ class AddSneaker extends Component {
           </Select>
           <FormHelperText>Secondary Color</FormHelperText>
         </FormControl> */}
-        <select id = "brand_id" onChange={this.handleChange("brand_id")}>
+        <select id = "brand_id" onChange={this.handleChange("brand_id")} className="select-css">
+            <option> Brand </option>
         {this.props.reduxState.brandReducer.map( brand =>
             <option value={brand.id}>{brand.brand}</option>
           )}
         </select>
-        <select id = "color1_id" onChange={this.handleChange("color1_id")}>
+        <select id = "color1_id" onChange={this.handleChange("color1_id")} className="select-css">
+                <option> Main Color </option>
             {this.props.reduxState.colorReducer.map( color =>
                 <option value={color.id}>{color.color}</option>
             )}
         </select>
-        <select id = "color2_id" onChange={this.handleChange("color2_id")}>
+        <select id = "color2_id" onChange={this.handleChange("color2_id")} className="select-css">
+                <option> Secondary Color </option>
             {this.props.reduxState.colorReducer.map( color =>
                 <option value={color.id}>{color.color}</option>
             )}
         </select>
+        <br/>
+        <br/>
+        <br/>
         <TextField
           id="outlined-multiline-flexible"
           label="Sneaker Story"

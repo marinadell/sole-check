@@ -73,7 +73,7 @@ class DetailedShoe extends Component {
             <body key={shoe.id}>
                 <h1 className="shoeName">{shoe.shoe_name}</h1>
                 <section className="first">
-                    <img src={shoe.image} alt={shoe.shoe_name}></img>
+                    <img src={shoe.media_url} alt={shoe.shoe_name} className="detailImg"></img>
                     <div>
                         <div className="description">
                             <p>{shoe.style}</p>
@@ -88,12 +88,13 @@ class DetailedShoe extends Component {
                     </div>
                 </section>
                 <section className="second">
-                    <p>Last Time Worn:</p> 
-                    <p>{moment(shoe.last_worn).subtract().calendar()}</p>
+                    <p>Last Time Worn:</p>
+                    {shoe.last_worn ?
+                   <p className="date">{moment(shoe.last_worn).subtract().calendar()}</p > : <p className="date">Never worn</p>}
                     <p>Added to collection:</p> 
-                    <p>{moment(shoe.date_added).subtract().calendar()}</p>
+                    <p className="date">{moment(shoe.date_added).subtract().calendar()}</p>
                     {shoe.deadstock ?
-                   <p>DEADSTOCK</p> : <p></p>}
+                   <p className="ds">DEADSTOCK</p> : <p></p>}
                    <p>Have you worn this recently?</p>
                    <form className={classes.container} noValidate>
                         <TextField

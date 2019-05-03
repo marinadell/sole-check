@@ -47,14 +47,14 @@ router.post('/', (req, res) => {
 
 router.get('/details/:id', (req, res) => {
     console.log(req.params.id);
-    const queryText = `SELECT "shoe"."id", "shoe_name", "user_id", "style", "story", "image", "date_added", "last_worn", "deadstock", 
-    "brand"."brand", "c1"."color" AS "color1", "c2"."color" AS "color2" FROM "shoe"
-    JOIN "brand" ON "brand"."id" = "shoe"."brand_id"
-    JOIN "color" AS "c1" ON "c1"."id" = "shoe"."color1_id"
-    JOIN "color" AS "c2" ON "c2"."id" = "shoe"."color2_id" 
-    WHERE "shoe"."id" = $1`;
+    const queryText = `SELECT "shoe"."id", "user_id", "shoe_name", "style", "story", "image", "date_added", "last_worn", "deadstock", "brand"."brand", "c1"."color" AS "color1", "c2"."color" AS "color2", "image"."media_key" FROM "shoe"
+                        JOIN "brand" ON "brand"."id" = "shoe"."brand_id"
+                        JOIN "color" AS "c1" ON "c1"."id" = "shoe"."color1_id"
+                        JOIN "color" AS "c2" ON "c2"."id" = "shoe"."color2_id" 
+                        JOIN "image" ON "image"."id" = "shoe"."image_id" 
+                        WHERE "shoe"."id" = $1;`;
     pool.query(queryText, [req.params.id])
-      .then((result) => { res.send(result.rows); })
+      .then((response) => { generateSignedUrls(res, response.rows) })
       .catch((err) => {
         console.log('Error completing SELECT shoe', err);
         res.sendStatus(500);

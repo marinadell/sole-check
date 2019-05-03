@@ -43,13 +43,13 @@ class UserPage extends Component {
         </h1>
         <div className="userpage">
           <div className="card" onClick={this.collectionClick}>
-            <img src="images/sneakers.jpg" alt="sneakers"/>
+            <img src="images/sneakers.jpg" alt="sneakers" className="homeImg"/>
             <div className="container">
               <h2>View Collection</h2>
             </div>
           </div>
           <div className="card" onClick={this.addClick}>
-            <img src="images/sneakerscollection.jpg" alt="sneakers"/>
+            <img src="images/sneakerscollection.jpg" alt="sneakers" className="homeImg"/>
             <div className="container">
               <h2>Add A New Sneaker</h2>
             </div>

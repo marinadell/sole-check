@@ -1,7 +1,11 @@
 .shoeName{
     text-transform: uppercase;
     text-align: center;
-    text-decoration: red underline;
+    text-decoration: yellow underline;
+    background-color: red;
+    font-size: 50px;
+    width: 50%;
+    margin-left: 25%
 }
 
 .first {
@@ -10,14 +14,18 @@
     background-color: yellow;
     margin-left: 5%;
     margin-right: 5%;
+    border-radius: 25px;
 }
 
 .second{
     float: right;
     background-color: blue;
+    border-radius: 25px;
     font-size: 20px;
     width: 25%;
     margin-right: 5%;
+    color: yellow;
+    padding: 10px;
 }
   
 .row:after {
@@ -26,10 +34,12 @@
     clear: both;
 }
 
-img {
+.detailImg {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    height: 40%;
+    width: auto;
 }
 
 .description{
@@ -41,6 +51,7 @@ img {
 
 .story{
     text-align: center;
+    font-size: 30px;
 }
 
 .delete{
@@ -51,4 +62,13 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.ds{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.date{
+    margin-left: 25px;
 }
