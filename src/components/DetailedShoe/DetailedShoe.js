@@ -76,10 +76,9 @@ class DetailedShoe extends Component {
                     <img src={shoe.media_url} alt={shoe.shoe_name} className="detailImg"></img>
                     <div>
                         <div className="description">
-                            <p>{shoe.style}</p>
-                            <p>{shoe.brand}</p>
-                            <p>{shoe.color1}</p>
-                            <p>{shoe.color2}</p>
+                            <p className="shoestyle">{shoe.style}</p>
+                            <p className="shoestyle">{shoe.brand}</p>
+                            <p className="shoestyle">{shoe.color1} / {shoe.color2}</p>
                         </div>
                         <div className="story">
                             <p>{shoe.story}</p>

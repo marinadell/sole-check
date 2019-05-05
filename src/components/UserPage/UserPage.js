@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import './UserPage.css';
 import axios from 'axios';
+import logo from './logo.svg';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
@@ -42,13 +43,14 @@ class UserPage extends Component {
            Welcome, { this.props.user.username }!
         </h1>
         <div className="userpage">
-          <div className="card" onClick={this.collectionClick}>
+          <div className="hcard" onClick={this.collectionClick}>
             <img src="images/sneakers.jpg" alt="sneakers" className="homeImg"/>
             <div className="container">
               <h2>View Collection</h2>
             </div>
           </div>
-          <div className="card" onClick={this.addClick}>
+          <img src={logo} className="App-logo" alt="logo" />
+          <div className="hcard" onClick={this.addClick}>
             <img src="images/sneakerscollection.jpg" alt="sneakers" className="homeImg"/>
             <div className="container">
               <h2>Add A New Sneaker</h2>

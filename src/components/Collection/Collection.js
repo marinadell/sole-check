@@ -33,7 +33,7 @@ class Collection extends Component {
                   <h4>{shoe.shoe_name}</h4>
                   <p>{shoe.style}</p>
                   <p>{shoe.brand}</p>
-                  <button onClick={this.detailedButton} value={shoe.id}>More Details</button>
+                  <button onClick={this.detailedButton} value={shoe.id} className="detailedButton">More Details</button>
                 </div>
               </div>
               :
@@ -43,7 +43,7 @@ class Collection extends Component {
                   <h4>{shoe.shoe_name}</h4>
                   <p>{shoe.style}</p>
                   <p>{shoe.brand}</p>
-                  <button onClick={this.detailedButton} value={shoe.id}>More Details</button>
+                  <button onClick={this.detailedButton} value={shoe.id} className="detailedButton">More Details</button>
                 </div>
               </div>
               }
