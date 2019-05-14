@@ -2,9 +2,9 @@ const pool  = require('../modules/pool');
 const fs    = require('fs-extra');
 const AWS   = require('aws-sdk');
 
-const BUCKET_NAME     = process.env.bucket_name;
-const IAM_USER_KEY    = process.env.aws_access_key_id;
-const IAM_USER_SECRET = process.env.aws_secret_access_key;
+const CHEESE_HEAD     = process.env.cheesehead;
+const FULLER    = process.env.fuller;
+const AURORA = process.env.aurora;
 
 const uploadPost = async (req, res) => {
     let media_key = await uploadToS3(req.file, res);
@@ -38,13 +38,13 @@ const uploadPost = async (req, res) => {
   function generateSignedUrl(key) {
     return new Promise(revolve => {
       let s3bucket = new AWS.S3({
-        accessKeyId: IAM_USER_KEY,
-        secretAccessKey: IAM_USER_SECRET,
-        Bucket: BUCKET_NAME,
+        accessKeyId: FULLER,
+        secretAccessKey: AURORA,
+        Bucket: CHEESE_HEAD,
         signatureVersion: 'v4',
         region: 'us-east-2',
       });
-      let urlParams = {Bucket: BUCKET_NAME, Key: key};
+      let urlParams = {Bucket: CHEESE_HEAD, Key: key};
       console.log('urlparams are:', {urlParams});
       s3bucket.getSignedUrl('getObject', urlParams, function(error, url) {
         if(error){
@@ -66,15 +66,15 @@ const uploadPost = async (req, res) => {
         .then(data => {
           console.log(`file read: `, data);
           let s3bucket = new AWS.S3({
-            accessKeyId: IAM_USER_KEY,
-            secretAccessKey: IAM_USER_SECRET,
-            Bucket: BUCKET_NAME,
+            accessKeyId: FULLER,
+            secretAccessKey: AURORA,
+            Bucket: CHEESE_HEAD,
             signatureVersion: 'v4',
             region: 'us-east-2',
           });
           s3bucket.createBucket(function () {
             var params = {
-              Bucket: BUCKET_NAME,
+              Bucket: CHEESE_HEAD,
               Key: file.filename,
               Body: data,
             };
