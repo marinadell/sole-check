@@ -63,7 +63,7 @@ class AddSneaker extends Component {
     this.setState({
       [name]: event.target.value,
     });
-  };
+  }; 
 
 
   addShoeButton = (event) => {
