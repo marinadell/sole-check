@@ -49,7 +49,6 @@ class UserPage extends Component {
               <h2>View Collection</h2>
             </div>
           </div>
-          <img src={logo} className="App-logo" alt="logo" />
           <div className="hcard" onClick={this.addClick}>
             <img src="images/sneakerscollection.jpg" alt="sneakers" className="homeImg"/>
             <div className="container">
