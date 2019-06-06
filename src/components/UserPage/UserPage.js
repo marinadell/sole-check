@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import './UserPage.css';
 import axios from 'axios';
-import logo from './logo.svg';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
