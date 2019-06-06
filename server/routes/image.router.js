@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-const multer  = require('multer');
-const multerDest = process.env.multer_dest || '../uploads';
-const upload = multer({ dest: multerDest });
 const { uploadPost, uploadPostWithText, generateSignedUrls } = require('../modules/imageHandler');
 
 router.post('/', upload.single('file'), (req, res) => {
