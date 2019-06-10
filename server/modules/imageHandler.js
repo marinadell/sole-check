@@ -11,10 +11,10 @@ const uploadPost = async (req, res) => {
     uploadToSQL(req, media_key, res);
   }
   
-  const uploadPostWithText = async (req, res) => {
-    let media_key = await uploadToS3(req.file, res);
-    uploadToSQLWithText(req, media_key, res);
-  }
+  // const uploadPostWithText = async (req, res) => {
+  //   let media_key = await uploadToS3(req.file, res);
+  //   uploadToSQLWithText(req, media_key, res);
+  // }
   
   const generateSignedUrls = async (res, rows) => {
       const newRows = await addSignedUrls(rows);
@@ -111,25 +111,25 @@ const uploadPost = async (req, res) => {
     })
   }
   
-  function uploadToSQLWithText(req, media_key, res) {
-    return new Promise(resolve => {
-      const title = req.body.title;
-      const content = req.body.content;
-      const queryText = `INSERT INTO post 
-                          ("media_key", "title", "content")
-                          VALUES
-                          ($1, $2, $3)`;
+  // function uploadToSQLWithText(req, media_key, res) {
+  //   return new Promise(resolve => {
+  //     const title = req.body.title;
+  //     const content = req.body.content;
+  //     const queryText = `INSERT INTO post 
+  //                         ("media_key", "title", "content")
+  //                         VALUES
+  //                         ($1, $2, $3)`;
       
-      pool.query(queryText, [media_key, title, content])
-        .then((result) => {
-          console.log('back from db with:', result);
-          res.sendStatus(200);
-        })
-        .catch((error) => {
-          console.log('error in POST', error);
-          res.sendStatus(500);
-        })
-    })
-  }
+  //     pool.query(queryText, [media_key, title, content])
+  //       .then((result) => {
+  //         console.log('back from db with:', result);
+  //         res.sendStatus(200);
+  //       })
+  //       .catch((error) => {
+  //         console.log('error in POST', error);
+  //         res.sendStatus(500);
+  //       })
+  //   })
+  // }
 
-  module.exports = {uploadPost, uploadPostWithText, generateSignedUrls};
+  module.exports = {uploadPost, generateSignedUrls};

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { takeLatest, put } from 'redux-saga/effects';
 
 function* imgSaga(action) {
-    console.log('Hit the img saga', action);
+    console.log('Hit the img saga', action.payload);
     try {
       // Attempt to send img
       const data = new FormData();
